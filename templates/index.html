@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+  <meta charset="UTF-8">
+  <title>Credit Risk Model</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{ url_for('static',filename='CSS/cssfile.css')  }}">
+
+  <style>
+    body {
+      background-image: url("{{ url_for('static',filename='images/credit_risk_background.jpg') }}");
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+    }
+
+    .predi {
+      background-color: black;
+      margin: auto;
+      text-align: center;
+      font-family: fantasy;
+      color: white;
+      font-size: xx-large;
+      width: 40%;
+
+    }
+
+    .col {
+      color: white;
+      font-weight: bold;
+    }
+
+    .form-text {
+      color: black;
+      font-size: small;
+    }
+
+    h1{
+      padding-top: 2%;
+      text-align: center;
+      color: white;
+    }
+
+  </style>
+</head>
+
+
+<body>
+  <div class="login">
+    <h1>Customer Righteous or Erroneous</h1>
+    
+    <div class="predi">
+      {{prediction_text}}
+    </div>
+    
+    <form action="{{ url_for('predict')}}" method="post">
+      <div class="form-row m-5">
+        <div class="col">
+          <label for="RevolvingUtilizationOfUnsecuredLines"><b>Revolving Utilization Of UnsecuredLines</b></label>
+          <input type="text" name="RevolvingUtilizationOfUnsecuredLines" class="form-control"
+            placeholder="Credit Card Limit" , required='required'>
+          <small id="RevolvingUtilizationOfUnsecuredLines_help" class="form-text">The credit card
+            limits of the borrower after excluding any current loan debt and real estate.(Between 0-1)</small>
+        </div>
+        <div class="col">
+          <label for="age"><b>Age</b></label>
+          <input type="text" name="age" class="form-control" placeholder="Age" , required='required'>
+          <small id="age" class="form-text">Age of the person.</small>
+        </div>
+      </div>
+
+      <div class="form-row m-5">
+        <div class="col">
+          <label for="NumberOfTime30-59DaysPastDueNotWorse"><b>EMI Paid between 30-59 Days</b></label>
+          <input type="text" name="NumberOfTime30-59DaysPastDueNotWorse" class="form-control"
+            placeholder="EMI Paid between 30-59 Days" , required='required'>
+          <small id="NumberOfTime30-59DaysPastDueNotWorse" class="form-text">The number of times
+            borrowers have paid their EMIs late but have paid them 30 days after the due date or 59 days before the due
+            date.</small>
+        </div>
+        <div class="col">
+          <label for="DebtRatio"><b>DebtRatio</b></label>
+          <input type="text" name="DebtRatio" class="form-control" placeholder="DebtRatio" , required='required'>
+          <small id="DebtRatio" class="form-text">If my monthly debt is $200 and my other expenditure is
+            $500, then I spend $700 monthly. If my monthly income is $1,000, then the value of the DebtRatio is
+            $700/$1,000 = 0.7000</small>
+        </div>
+      </div>
+
+      <div class="form-row m-5">
+        <div class="col">
+          <label for="MonthlyIncome"><b>Monthly Income</b></label>
+          <input type="text" name="MonthlyIncome" class="form-control" placeholder="Monthly Income" ,
+            required='required'>
+          <small id="MonthlyIncome" class="form-text">Monthly Income of the person</small>
+        </div>
+        <div class="col">
+          <label for="NumberOfOpenCreditLinesAndLoans "><b>Number of Open loan and/or Credit cards</b></label>
+          <input type="text" name="NumberOfOpenCreditLinesAndLoans" class="form-control"
+            placeholder="Open Loan and/or credit card" , required='required'>
+          <small id="NumberOfOpenCreditLinesAndLoans" class="form-text">The number of open loans and/or the
+            number of credit cards the borrower holds.</small>
+        </div>
+      </div>
+
+      <div class="form-row m-5">
+        <div class="col">
+          <label for="NumberOfTimes90DaysLate "><b>EMI Paid After 90 Days</b></label>
+          <input type="text" name="NumberOfTimes90DaysLate" class="form-control" placeholder="EMI Paid after 90 days" ,
+            required='required'>
+          <small id="NumberOfTimes90DaysLate" class="form-text">The number of times a borrower has paid their
+            dues 90 days after the due date of their EMIs.</small>
+        </div>
+        <div class="col">
+          <label for="NumberRealEstateLoansOrLines"><b>Number of Home Loan or Real Estate Loan</b></label>
+          <input type="text" name="NumberRealEstateLoansOrLines" class="form-control"
+            placeholder="Home Loan or Real Estate Loan" , required='required'>
+          <small id="NumberRealEstateLoansOrLines" class="form-text">The number of loans the borrower
+            holds for their real estate or the number of home loans a borrower has.</small>
+        </div>
+      </div>
+
+      <div class="form-row m-5">
+        <div class="col">
+          <label for="NumberOfTime60-89DaysPastDueNotWorse"><b>EMI Paid between 60-80 Days</b></label>
+          <input type="text" name="NumberOfTime60-89DaysPastDueNotWorse" class="form-control"
+            placeholder="EMI Paid between 60-80 Days" , required='required'>
+          <small id="NumberOfTime60-89DaysPastDueNotWorse" class="form-text">The number of times borrowers
+            have paid their EMIs late but paid them 60 days after their due date or 89 days before their due
+            date.</small>
+        </div>
+        <div class="col">
+          <label for="NumberOfDependents  "><b>Number of Dependent Family Members</b></label>
+          <input type="text" name="NumberOfDependents" class="form-control" placeholder="Dependent Family Members" ,
+            required='required'>
+          <small id="NumberOfDependents " class="form-text">The number of dependent family
+            members the borrowers have. The dependent count is excluding the borrower.</small>
+        </div>
+      </div>
+
+      <div class="text-center m-4">
+        <button type="submit" class="btn-lg btn-light">Predict</button>
+      </div>
+    </form>
+
+    
+
+  </div>
+
+</body>
+</html>
