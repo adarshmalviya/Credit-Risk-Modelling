@@ -1,0 +1,239 @@
+html{
+    min-height: 100%;
+    min-width: 100%;
+}
+
+
+.firstpage{
+    background-image: url("../images/final_coding_img3.webp");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+.secondpage{
+    background-image: url("../images/2048game.webp");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+.navbar{
+    font-family: 'Abril Fatface', cursive;
+    font-size: large;
+}
+.nav-item a{
+    color: white;
+}
+#navbarDropdown{
+    color: white;
+}
+.navbar-toggler{
+    padding: .25rem .75rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    background-color:transparent;
+    border: 1px solid black;
+    border-radius: .45rem;
+}
+
+.dropdown-item:active{
+    background-color: gray;
+}
+
+.nav-item:active{
+    background-color: gray;
+}
+
+.nav-item:hover{
+    background-color: gray;
+}
+.nav-link:visited{
+    background-color: transparent;
+}
+
+.nav-item a::after{
+    transition: all .5s;
+}
+.navbar-toggler-icon{
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.logo1 img{
+    width: 145px;
+    height: 136px;
+}
+.name{
+    text-align: center;
+    font-family: 'Abril Fatface', cursive;
+    color: white;
+}
+.intro{
+    font-family: 'Abril Fatface', cursive;
+}
+
+.dropdown-item{
+    color:black;
+}
+
+.icontainer img{
+    width: 250px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+}
+
+.card{
+    background: transparent;
+    color: aliceblue;
+}
+
+/*                         Card Title Animation                         */
+
+.card-title{
+    animation-name: colorchange;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+
+
+#achivheader{
+    color: rgb(10, 14, 17);
+    margin-top: 10px;
+    text-align: center;
+    font-family: 'Abril Fatface', cursive;
+    animation-name: colorchange;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+.container{
+    color: aliceblue;
+
+}
+
+.mb-0{
+    font-size: 1.65rem;
+}
+
+
+.thirdpage{
+    background-image: url("final_coding_img3.webp");
+    background-attachment: fixed;
+}
+
+#projecttitle{
+    color: black;
+    margin-top: 10px;
+    text-align: center;
+    font-family: 'Abril Fatface', cursive;
+    animation-name: colorchange;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes colorchange{
+    0%{
+        color: rgb(59, 243, 13);
+    }
+    10%{
+        color: red;
+    }
+    20%{
+        color: blue;
+    }
+    30%{
+        color: yellow;
+    }
+    40%{
+        color: green;
+    }
+    50%{
+        color: cyan;
+    }
+    60%{
+        color: violet;
+    }
+    70%{
+        color: tomato;
+    }
+    80%{
+        color: springgreen;
+    }
+    90%{
+        color: seagreen;
+    }
+    100%{
+        color: crimson;
+    }
+}
+.icon1{
+    width: 75px;
+    height: 75px;
+}
+.insidelogo{
+    text-align: center;
+}
+.featurette-heading{
+    font-family: 'Abril Fatface', cursive;
+}
+
+.collegebox{
+    text-align: center;
+}
+
+#education{
+    font-family: 'Abril Fatface', cursive;
+    text-align: center;
+    animation-name: colorchange;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+.educationblock h1{
+    text-align: center;
+    color: white;
+    font-family: 'Abril Fatface', cursive;
+}
+
+.educationblock h4{
+    color: white;
+    text-align: center;
+    font-family: 'Abril Fatface', cursive;
+}
+
+.educationblock ul{
+    color: white;
+    text-align: center;
+    font-family: 'Abril Fatface', cursive;
+}
+
+/* .forthpage{
+    bottom: 0;
+    position: relative;
+    background-color: black;
+}
+
+.forthpage h5{
+    color: black;
+    text-align: center;
+    font-family: 'Abril Fatface', cursive;
+}
+
+
+.footerlogo{
+    text-align: center;
+}
+
+.icon{
+    width: 60px;
+    height: 60px;
+} */
+
+.container h3{
+    font-family: 'Abril Fatface', cursive;
+    animation-name: colorchange;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+.div:focus{
+    background-color: transparent;
+}
