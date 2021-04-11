@@ -5,11 +5,7 @@ import pickle
 app = Flask(__name__, template_folder='templates')
 model = pickle.load(open('model.pkl', 'rb'))
 
-@app.route('/')
-def home():
-    return render_template('credit_model.html')
-
-@app.route('/credit_risk_model', methods = ["GET",'POST'])
+@app.route('/', methods = ["GET",'POST'])
 def predict():
     if request.method == 'GET':
         return render_template('credit_model.html')
