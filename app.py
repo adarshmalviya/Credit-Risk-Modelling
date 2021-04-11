@@ -26,4 +26,4 @@ def predict():
 
         return render_template('credit_model.html', prediction_text=prediction)
     
-app.run(debug=True)
+app.run()
