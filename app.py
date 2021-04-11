@@ -21,5 +21,5 @@ def predict():
             prediction = "Invalid Data"
 
         return render_template('credit_model.html', prediction_text=prediction)
-    
-app.run()
+if __name__ == "__main__":
+    app.run()
